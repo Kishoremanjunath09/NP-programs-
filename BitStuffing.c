@@ -1,12 +1,11 @@
 #include <stdio.h>
 int main()
 {
-  int n,count1=0,count0=0;
-  printf("enter n ");
+  int n,count1=0;
+  printf("enter size of bit string to be sent: ");
   scanf("%d",&n);
   int arr[n];
-  //enter the bit string of len n
-  printf("enter the bit string of len n ");
+  printf("enter the bit string of len %d ",n);
   for(int i=0;i<n;i++)
   {
     scanf("%d",&arr[i]);
