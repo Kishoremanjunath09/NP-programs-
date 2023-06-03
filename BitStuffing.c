@@ -17,7 +17,6 @@ int main()
   {
     if(arr[i]==1)
     {
-      count0=0;
       count1++;
       array[k]=arr[i];
       k++;
