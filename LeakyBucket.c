@@ -3,7 +3,7 @@
 #define MIN(x,y) (x>y)?y:x
 int main()
 {
-    int orate,drop=0,cap,x,count=0,inp[10]={0},i=0,nsec,ch,sum=0;
+    int orate,drop=0,cap,x,count=0,inp[10]={0},i=0,nsec,ch;//,sum=0;
     printf("\n enter bucket size : ");
     scanf("%d",&cap);//capacity
     printf("\n enter output rate :");
@@ -11,8 +11,8 @@ int main()
     do{
     printf("\n enter number of packets coming at second %d :",i+1);
     scanf("%d",&inp[i]);
-    sum+=inp[i];
-    if(sum>cap)
+    //sum+=inp[i];
+    if(inp[i]>cap)
     {
         printf("Bucket overflow\n");        
         printf("Packet Discarded\n");
