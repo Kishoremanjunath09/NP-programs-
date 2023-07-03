@@ -7,7 +7,7 @@ int main()
     printf("enter the no of frames:");
     scanf("%d",&n);
     char str[n][100];
-    char op[100], conv[100];
+    char op[100]="", conv[100];
     for(int i=0;i<n;i++){
         printf("enter the frame %d",i+1);
         scanf("%s",str[i]);
