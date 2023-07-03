@@ -26,18 +26,16 @@ InternetStackHelper internet;
 Ipv4AddressHelper address;
  address.SetBase ("10.1.1.0", "255.255.255.0");
  Ipv4InterfaceContainer interface = address.Assign (devices);
-uint16_t port = 9;  // well-known echo port number
+//uint16_t port = 9;  // well-known echo port number
  
 //This abstract class defines the API for TCP sockets. This class also holds the global default variables used to initialize newly created sockets, 
 
-BulkSendHelper source ("ns3::TcpSocketFactory",
- InetSocketAddress (iterface.GetAddress (1), 9));
+BulkSendHelper source ("ns3::TcpSocketFactory", InetSocketAddress (iterface.GetAddress (1), 9));
   source.SetAttribute ("MaxBytes", UintegerValue (0));
   ApplicationContainer sourceApps = source.Install (nodes.Get (0));
   sourceApps.Start (Seconds (0.0));
   sourceApps.Stop (Seconds (10.0));
-PacketSinkHelper sink ("ns3::TcpSocketFactory",
-  InetSocketAddress (Ipv4Address::GetAny (), 9));
+PacketSinkHelper sink ("ns3::TcpSocketFactory",InetSocketAddress (Ipv4Address::GetAny (), 9));
   ApplicationContainer sinkApps = sink.Install (nodes.Get (1));
   sinkApps.Start (Seconds (0.0));
   sinkApps.Stop (Seconds (10.0));
