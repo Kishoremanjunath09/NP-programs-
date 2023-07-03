@@ -60,11 +60,11 @@ NodeContainer p2pNodes;
 
   UdpEchoServerHelper echoServer (9);
 
-  ApplicationContainer serverApps = echoServer.Install (csmaNodes.Get (nCsma));
+  ApplicationContainer serverApps = echoServer.Install (csmaNodes.Get (3));
   serverApps.Start (Seconds (1.0));
   serverApps.Stop (Seconds (10.0));
 
-  UdpEchoClientHelper echoClient (csmaInterfaces.GetAddress (nCsma), 9);
+  UdpEchoClientHelper echoClient (csmaInterfaces.GetAddress (3), 9);
   echoClient.SetAttribute ("MaxPackets", UintegerValue (1));
   echoClient.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
   echoClient.SetAttribute ("PacketSize", UintegerValue (1024));
