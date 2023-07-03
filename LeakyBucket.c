@@ -1,58 +1,55 @@
-#include<stdio.h>
+//leakybucket
+#include <stdio.h>
 #include<stdlib.h>
 #define MIN(x,y) (x>y)?y:x
 int main()
 {
-    int orate,drop=0,cap,x,count=0,inp[10]={0},i=0,nsec,ch;//,sum=0;
-    printf("\n enter bucket size : ");
-    scanf("%d",&cap);//capacity
-    printf("\n enter output rate :");
-    scanf("%d",&orate);//amount gng out every second
+    int orate,n,i=0,sum=0,x,cap;
+    int condition;
+    //printf("ente the bucket size:");
+    //scanf("%d",&n);
+    printf("enter the capacity:");
+    scanf("%d",&cap);
+    printf("enter the output rate:");
+    scanf("%d",&orate);
+    
+    int input[15];
     do{
-    printf("\n enter number of packets coming at second %d :",i+1);
-    scanf("%d",&inp[i]);
-    //sum+=inp[i];
-    if(inp[i]>cap)
-    {
-        printf("Bucket overflow\n");        
-        printf("Packet Discarded\n");
-        exit(0);
-    }
-    i++;
-    printf("\n enter 1 to contiue or 0 to quit..........");
-    scanf("%d",&ch);
-}
-//inp has the amount of data coming in every second
-while(ch);
-nsec=i;
-//count is remaining in bucket 
-printf("\n Second \t Recieved \t Sent \t Dropped \tRemained \n");
-for(i=0;count || i<nsec;i++)
-{
-    printf("  %d",i+1);
-    printf(" \t\t%d\t ",inp[i]);
-    printf(" \t%d\t ",MIN((inp[i]+count),orate));
-    if((x=inp[i]+count-orate)>0)
-    {
-        //if x is more than the capacity of bucket
-        if(x>cap)
-        {
-            count=cap;
-            drop=x-cap;
+        printf("enter the packets coming in at %d :",i+1);
+        scanf("%d",&input[i]);
+        sum+=input[i];
+        if(input[i]>cap){
+            printf("bucket overflow");
+            exit(0);
         }
-        
-        else
-        {
-            count=x;
-            drop=0;
+        i++;
+        printf("enter 1 to continue/ 0 to end ");
+        scanf("%d",&condition);
+    }
+    while(condition);
+    
+    int nsec=i,remain=0,discard=0;
+    printf("sec\t\t incoming\t\t out \t\t remain\t\t discard\n");
+    for(int i=0;remain||i<nsec;i++){
+        printf("%d",i+1);
+        printf("\t\t%d",input[i]);
+        printf("\t\t\t\t%d",MIN((input[i]+remain),orate));
+        if((x=input[i]+remain-orate)>0){
+            if(x>cap){
+                remain=cap;
+                discard=x-cap;
+            }
+            else{
+                remain=x;
+                discard=0;
+            }
         }
+        else{
+            remain=0;
+            discard=0;
+        }
+        printf("\t%d\t\t%d\n",remain,discard);
     }
-    else
-    {
-        drop=0;
-        count=0;
-    }
-    printf(" \t %d\t %d \n",drop,count);
-}
-return 0;
+
+    return 0;
 }
