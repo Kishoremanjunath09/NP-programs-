@@ -13,8 +13,7 @@ int main (int argc, char *argv[])
 
   NodeContainer nodes;
   nodes.Create (4);
-  InternetStackHelper stack;
-  stack.Install (nodes);
+ 
   CsmaHelper csma;
   csma.SetChannelAttribute ("DataRate", DataRateValue (DataRate (5000000)));
   csma.SetChannelAttribute ("Delay", TimeValue (MilliSeconds (2)));
@@ -22,7 +21,9 @@ int main (int argc, char *argv[])
   //mtu->maximun transmission unit 
   NetDeviceContainer device = csma.Install (nodes);
   
-
+   InternetStackHelper stack;
+    stack.Install (nodes);
+  
   Ipv4AddressHelper address;
       address.SetBase ("10.1.1.0", "255.255.255.0");
       
