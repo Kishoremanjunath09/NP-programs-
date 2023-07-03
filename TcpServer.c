@@ -35,7 +35,7 @@ int main(){
   int sockfd, new_sock;
   struct sockaddr_in server_addr, new_addr;
   //socklen_t addr_size;
-  char buffer[SIZE];
+  //char buffer[SIZE];
  
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if(sockfd < 0) {
