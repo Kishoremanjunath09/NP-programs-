@@ -13,8 +13,8 @@ int main()
         scanf("%s",str[i]);
         len=strlen(str[i]);
         sprintf(conv,"%d",len);
+        strcat(str[i],conv);
         strcat(op,str[i]);
-        strcat(op,conv);
         
     }
     printf("the byte stuffed data is:\n");
