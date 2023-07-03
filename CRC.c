@@ -1,5 +1,3 @@
-///////CRC
-// Include headers
 #include<stdio.h>
 #include<string.h>
 // length of the generator polynomial
