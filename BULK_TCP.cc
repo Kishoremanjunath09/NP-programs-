@@ -37,7 +37,7 @@ BulkSendHelper source ("ns3::TcpSocketFactory",
   sourceApps.Start (Seconds (0.0));
   sourceApps.Stop (Seconds (10.0));
 PacketSinkHelper sink ("ns3::TcpSocketFactory",
-  InetSocketAddress (Ipv4Address::GetAny (), port));
+  InetSocketAddress (Ipv4Address::GetAny (), 9));
   ApplicationContainer sinkApps = sink.Install (nodes.Get (1));
   sinkApps.Start (Seconds (0.0));
   sinkApps.Stop (Seconds (10.0));
