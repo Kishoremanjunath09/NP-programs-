@@ -23,13 +23,13 @@ int
 main (int argc, char *argv[])
 {
  
-  uint32_t nCsma = 3;
+  //uint32_t nCsma = 3;
 NodeContainer p2pNodes;
   p2pNodes.Create (2);
 
   NodeContainer csmaNodes;
   csmaNodes.Add (p2pNodes.Get (1));
-  csmaNodes.Create (nCsma);
+  csmaNodes.Create (3);
 
   PointToPointHelper pointToPoint;
   pointToPoint.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
