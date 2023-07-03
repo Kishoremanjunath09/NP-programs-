@@ -31,7 +31,7 @@ uint16_t port = 9;  // well-known echo port number
 //This abstract class defines the API for TCP sockets. This class also holds the global default variables used to initialize newly created sockets, 
 
 BulkSendHelper source ("ns3::TcpSocketFactory",
- InetSocketAddress (iterface.GetAddress (1), port));
+ InetSocketAddress (iterface.GetAddress (1), 9));
   source.SetAttribute ("MaxBytes", UintegerValue (0));
   ApplicationContainer sourceApps = source.Install (nodes.Get (0));
   sourceApps.Start (Seconds (0.0));
