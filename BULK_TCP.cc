@@ -9,8 +9,7 @@
 #include "ns3/netanim-module.h"
 
 using namespace ns3;
-int
-main (int argc, char *argv[])
+int main (int argc, char *argv[])
 {
 
 
