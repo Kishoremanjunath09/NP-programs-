@@ -12,6 +12,9 @@ void write_file(int sockfd){
  
   fp = fopen(filename, "w"); 
   while (1) {
+        //int recv(int socket, char *buffer, int length, int flags);
+        //If successful, recv() returns the length of the message or datagram in bytes
+        //If unsuccessful, recv() returns -1 
     n = recv(sockfd, buffer, SIZE, 0);
     if (n <= 0){
       break;
@@ -31,7 +34,7 @@ int main(){
  
   int sockfd, new_sock;
   struct sockaddr_in server_addr, new_addr;
-  socklen_t addr_size;
+  //socklen_t addr_size;
   char buffer[SIZE];
  
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -51,16 +54,20 @@ int main(){
     exit(1);
   }
   printf("[+]Binding successfull.\n");
- 
-  if(listen(sockfd, 10) == 0){
+        //int listen(int socket, int backlog);
+        //backlog->Defines the maximum length for the queue of pending connections.
+        //If successful, listen() returns 0.//If unsuccessful, listen() returns -1.
+ if(listen(sockfd, 10) == 0){
  printf("[+]Listening....\n");
  }else{
  perror("[-]Error in listening");
     exit(1);
  }
  
-  addr_size = sizeof(new_addr);
-  new_sock = accept(sockfd, (struct sockaddr*)&new_addr, &addr_size);
+  //addr_size = sizeof(new_addr);
+ //If successful, accept() returns a nonnegative socket descriptor.
+ 
+  new_sock = accept(sockfd, (struct sockaddr*)&new_addr,sizeof(new_addr));// &addr_size);
   write_file(new_sock);
   printf("[+]Data written in the file successfully.\n");
  
