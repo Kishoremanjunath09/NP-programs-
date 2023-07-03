@@ -7,16 +7,16 @@
  
 void send_file(FILE *fp, int sockfd){
   int n;
-  char data[SIZE] = {0};
+  char buffer[SIZE] = {0};
  
-  while(fgets(data, SIZE, fp) != NULL) {
+  while(fgets(buffer, SIZE, fp) != NULL) {
         //If successful, send() returns 0 or greater indicating the number of bytes sent.
    //sizeof(data)
-    if (send(sockfd, data, SIZE, 0) == -1) {
+    if (send(sockfd, buffer, SIZE, 0) == -1) {
       perror("[-]Error in sending file.");
       exit(1);
     }
-    //bzero(data, SIZE);
+    //bzero(buffer, SIZE);
   }
 }
  
