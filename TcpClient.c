@@ -39,6 +39,7 @@ int main(){
   server_addr.sin_port = port;
   server_addr.sin_addr.s_addr = inet_addr(ip);
  
+ //If successful, connect() returns 0.
   e = connect(sockfd, (struct sockaddr*)&server_addr, sizeof(server_addr));
   if(e == -1) {
     perror("[-]Error in socket");
