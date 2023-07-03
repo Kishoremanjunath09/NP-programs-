@@ -36,7 +36,7 @@ int main(){
   struct sockaddr_in server_addr, new_addr;
   //socklen_t addr_size;
   //char buffer[SIZE];
- 
+ //s = socket(domain, type, protocol);
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if(sockfd < 0) {
     perror("[-]Error in socket");
