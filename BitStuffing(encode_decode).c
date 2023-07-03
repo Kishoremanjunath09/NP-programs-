@@ -50,7 +50,7 @@ void bitUnstuffing(int arr[], int n)
             array[k] = arr[i];
             k++;
             //if a zero is followed by 5 1's, skip the appended 0 -->bit unstuffing
-            if (count1 == 5 && arr[i + 1] == 0)
+            if (count1 == 5 && arr[i-5]==0 && arr[i + 1] == 0)
             {
                 i++;
             }
