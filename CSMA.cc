@@ -41,7 +41,7 @@ int main (int argc, char *argv[])
   //Time interPacketInterval = Seconds (1.);
   UdpEchoClientHelper client (interface.GetAddress(1),9);
   client.SetAttribute ("MaxPackets", UintegerValue (1));
-  client.SetAttribute ("Interval", TimeValue (Seconds(1.0));
+  client.SetAttribute ("Interval", TimeValue (Seconds(1.0)));
   client.SetAttribute ("PacketSize", UintegerValue (1024));
   apps = client.Install (nodes.Get (0));
   apps.Start (Seconds (2.0));
