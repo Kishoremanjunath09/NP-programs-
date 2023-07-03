@@ -10,11 +10,13 @@ void send_file(FILE *fp, int sockfd){
   char data[SIZE] = {0};
  
   while(fgets(data, SIZE, fp) != NULL) {
-    if (send(sockfd, data, sizeof(data), 0) == -1) {
+        //If successful, send() returns 0 or greater indicating the number of bytes sent.
+   //sizeof(data)
+    if (send(sockfd, data, SIZE, 0) == -1) {
       perror("[-]Error in sending file.");
       exit(1);
     }
-    bzero(data, SIZE);
+    //bzero(data, SIZE);
   }
 }
  
