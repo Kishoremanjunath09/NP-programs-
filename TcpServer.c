@@ -64,10 +64,10 @@ int main(){
     exit(1);
  }
  
-  //addr_size = sizeof(new_addr);
+  addr_size = sizeof(new_addr);
  //If successful, accept() returns a nonnegative socket descriptor.
  
-  new_sock = accept(sockfd, (struct sockaddr*)&new_addr,sizeof(new_addr));// &addr_size);
+  new_sock = accept(sockfd, (struct sockaddr*)&new_addr, &addr_size);
   write_file(new_sock);
   printf("[+]Data written in the file successfully.\n");
  
