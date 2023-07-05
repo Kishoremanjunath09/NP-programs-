@@ -4,7 +4,7 @@
 #define MIN(x,y) (x>y)?y:x
 int main()
 {
-    int orate,n,i=0,sum=0,x,cap;
+    int orate,n,i=0,x,cap;
     int condition;
     //printf("ente the bucket size:");
     //scanf("%d",&n);
@@ -17,7 +17,7 @@ int main()
     do{
         printf("enter the packets coming in at %d :",i+1);
         scanf("%d",&input[i]);
-        sum+=input[i];
+       
         if(input[i]>cap){
             printf("bucket overflow");
             exit(0);
